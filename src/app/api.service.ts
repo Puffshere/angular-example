@@ -12,4 +12,9 @@ export class ApiService {
   public get() {
     return this.httpClient.get(this.SERVER_URL);
   }
+  public login(username) {
+    let rolemap = { admin: "./dashboard", mentor: "./mentor", mentee: "./mentee" };
+    console.log(`in api service:  ${username}`);
+    return rolemap[username] ? rolemap[username] : "./login";
+  }
 }
